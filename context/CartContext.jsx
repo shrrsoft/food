@@ -1,7 +1,6 @@
 "use client";
-import { getProductData } from "@/data/items";
-
-const { createContext, useState } = require("react");
+import { getProductData, productList } from "@/data/items";
+import { createContext, useContext, useState, useEffect } from "react";
 
 export const cartContext = createContext({
   items: [],
@@ -12,11 +11,28 @@ export const cartContext = createContext({
   getTotalAmount: () => {},
 });
 
+export const useCartContext = () => {
+  return useContext(cartContext);
+};
+
 export function CartProvider({ children }) {
-  const [cartProducts, setCartProducts] = useState([]);
+  useEffect(() => {
+    let cartFromLocalStorage = localStorage.getItem("cartItems");
+    if (cartFromLocalStorage == "null") {
+      setCartProducts([]);
+    } else {
+      setCartProducts(JSON.parse(cartFromLocalStorage));
+    }
+  }, []);
+
+  let [cartProducts, setCartProducts] = useState([]);
+
+  useEffect(() => {
+    localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+  }, [cartProducts]);
 
   function getProductQuantity(id) {
-    const quantity = cartProducts.find((item) => id === item.id)?.quantity;
+    const quantity = cartProducts?.find((item) => id === item.id)?.quantity;
     if (quantity === undefined) {
       return 0;
     }

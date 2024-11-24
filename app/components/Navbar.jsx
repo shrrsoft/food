@@ -6,6 +6,8 @@ import { SlBasket } from "react-icons/sl";
 import SearchBox from "./SearchBox";
 import Link from "next/link";
 import { useState } from "react";
+import { useCartContext } from "@/context/CartContext";
+import CounterBadg from "./CounterBadg";
 
 const Navbar = () => {
   const [adress, setAdress] = useState("آدرس");
@@ -75,11 +77,12 @@ const Navbar = () => {
           <SearchBox />
         </div>
         <div className="flex items-center gap-2">
-          <Link href="/cart">
-            <SlBasket className="text-2xl text-[#E51A21]" />
+          <Link href="/cart" className="flex">
+            <CounterBadg />
+            <SlBasket className="text-2xl text-[#E51A21] " />
           </Link>
           <div className="flex gap-2 bg-[#E51A21] px-4 py-1 rounded-xl text-white">
-            <Link className="mb-1 text-sm font-bold" href="#">
+            <Link className="mb-1 text-sm font-bold" href="/">
               عضویت
             </Link>
             <div className="border"></div>
