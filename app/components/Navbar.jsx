@@ -2,97 +2,75 @@
 
 import Image from "next/image";
 import { LuMenu } from "react-icons/lu";
-import { SlBasket } from "react-icons/sl";
 import SearchBox from "./SearchBox";
 import Link from "next/link";
 import { useState } from "react";
-import { useCartContext } from "@/context/CartContext";
 import CounterBadg from "./CounterBadg";
+import Branch from "./Branch";
+import { IoCartOutline, IoClose } from "react-icons/io5";
 
 const Navbar = () => {
-  const [adress, setAdress] = useState("آدرس");
-
-  const handleAdress = (e) => {
-    switch (e) {
-      case "شمال":
-        setAdress("ولنجک");
-        break;
-      case "جنوب":
-        setAdress("خزانه");
-        break;
-      case "شرق":
-        setAdress("تهرانپارس");
-        break;
-      case "غرب":
-        setAdress("شهرک اکباتان");
-        break;
-      case "مرکز":
-        setAdress("فردوسی");
-        break;
-    }
-  };
+  const [isOpen, SetIsOpen] = useState(false);
 
   return (
-    <div className="w-full border-b-2 py-0.5 px-[6rem]">
-      <div className="flex items-center justify-between">
-        <div className="flex items-center gap-8">
+    <>
+      <div className="w-full border-b-2 py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white ">
+        <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
-            <div className="bg-[#E51A21] w-12 h-12 rounded-full flex justify-center items-center">
-              <LuMenu className="text-2xl" />
+            <div className="flex items-center gap-8">
+              <div className="bg-[#E51A21] w-12 h-12 rounded-full flex justify-center items-center lg:hidden">
+                <div
+                  className={`bg-[#E51A21]/80 h-screen fixed z-20 right-0 top-16 overflow-hidden origin-right transition-all ease-in-out ${
+                    isOpen ? "w-full" : "w-0"
+                  }`}
+                  onClick={() => SetIsOpen(false)}>
+                  <div className="flex flex-col gap-1 items-center p-1 text-white "></div>
+                </div>
+                <div>
+                  {isOpen ? (
+                    <IoClose
+                      className=" text-3xl"
+                      onClick={() => SetIsOpen(false)}
+                    />
+                  ) : (
+                    <LuMenu
+                      className="text-3xl"
+                      onClick={() => SetIsOpen(true)}
+                    />
+                  )}
+                </div>
+              </div>
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/Maani-logo.png"
+                  width={50}
+                  height={50}
+                  alt="logo"
+                  className="pb-2"
+                />
+              </div>
             </div>
-            <div className="size-20">
-              <Image
-                src="/Maani-logo.png"
-                width={100}
-                height={100}
-                alt="logo"
-                className="pb-2"
-              />
+            <Branch />
+            <SearchBox />
+          </div>
+          <div className="flex items-center gap-2 my-4">
+            <Link href="/cart" className="flex items-center">
+              <CounterBadg className="" />
+              <IoCartOutline className="text-3xl -mr-1.5" />
+            </Link>
+            <div className="sm:flex gap-2 bg-[#E51A21] px-4 py-1 rounded-xl text-white hidden">
+              <Link className="mb-1 text-sm font-bold" href="/">
+                صفحه اصلی
+              </Link>
+              <div className="border"></div>
+              <Link className="mb-1 text-sm font-bold" href="#">
+                ورود
+              </Link>
             </div>
-          </div>
-          <div>
-            <span>انتخاب شعبه</span>
-            <select
-              onChange={(e) => handleAdress(e.target.value)}
-              className=" text-center outline-none ">
-              <option value="شمال" className="">
-                شمال
-              </option>
-              <option value="جنوب" className="">
-                جنوب
-              </option>
-              <option value="شرق" className="">
-                شرق
-              </option>
-              <option value="غرب" className="">
-                غرب
-              </option>
-              <option value="مرکز" className="">
-                مرکز
-              </option>
-            </select>
-            <br />
-            <span>{adress}</span>
-          </div>
-          <SearchBox />
-        </div>
-        <div className="flex items-center gap-2">
-          <Link href="/cart" className="flex">
-            <CounterBadg />
-            <SlBasket className="text-2xl text-[#E51A21] " />
-          </Link>
-          <div className="flex gap-2 bg-[#E51A21] px-4 py-1 rounded-xl text-white">
-            <Link className="mb-1 text-sm font-bold" href="/">
-              عضویت
-            </Link>
-            <div className="border"></div>
-            <Link className="mb-1 text-sm font-bold" href="#">
-              ورود به سایت
-            </Link>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
