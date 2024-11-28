@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useCartContext } from "@/context/CartContext";
-import CartItem from "../components/cartItem";
 import { getProductData } from "@/data/items";
+import CartItem from "../components/CartItem";
 
 const page = () => {
   const { items } = useCartContext();
@@ -33,7 +33,6 @@ const page = () => {
           <span>مجموع قیمت </span>
         </div>
       </div>
-
       {items.map((item) => (
         <div key={item.id} className="mx-auto">
           <CartItem id={item.id} quantity={item.quantity} />

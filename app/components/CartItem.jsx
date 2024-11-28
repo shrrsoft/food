@@ -14,7 +14,7 @@ const CartItem = ({ id, quantity }) => {
         <img src={product.imageUrl} alt="" className="w-20 rounded-md m-1" />
         <div className="w-[70%] grid sm:grid-cols-3 grid-cols-1 gap-4 text-center justify-center items-center">
           <h3>{product.title}</h3>
-          <h5>{product.price} تومان </h5>
+          <h5>{numberWithCommas(product.price)} تومان </h5>
           <div>
             <button
               onClick={() => cart.addItemToCart(product.id)}
@@ -34,9 +34,7 @@ const CartItem = ({ id, quantity }) => {
             </button>
           </div>
         </div>
-        <span className="w-28 text-center">
-          {/* {numberWithCommas(product.price * quantity)} تومان */}
-        </span>
+        <span className="w-28 text-center"></span>
       </div>
     </div>
   );
