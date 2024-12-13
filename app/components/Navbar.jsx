@@ -8,9 +8,16 @@ import { useState } from "react";
 import CounterBadg from "./CounterBadg";
 import Branch from "./Branch";
 import { IoCartOutline, IoClose } from "react-icons/io5";
+import { useCartContext } from "@/context/CartContext";
 
 const Navbar = () => {
   const [isOpen, SetIsOpen] = useState(false);
+  const { isLogin, setIsLogin } = useCartContext();
+  function handleLogin() {
+    if (isLogin == true) {
+      setIsLogin(false);
+    }
+  }
 
   return (
     <>
@@ -54,7 +61,9 @@ const Navbar = () => {
             <SearchBox />
           </div>
           <div className="flex items-center gap-2 my-4">
-            <Link href="/cart" className="flex items-center">
+            <Link
+              href={isLogin ? "/cart" : "/login"}
+              className="flex items-center">
               <CounterBadg className="" />
               <IoCartOutline className="text-3xl -mr-1.5" />
             </Link>
@@ -63,8 +72,11 @@ const Navbar = () => {
                 صفحه اصلی
               </Link>
               <div className="border"></div>
-              <Link className="mb-1 text-sm font-bold" href="#">
-                ورود
+              <Link
+                className="mb-1 text-sm font-bold"
+                href="/login"
+                onClick={handleLogin}>
+                {isLogin ? "خروج" : "ورود"}
               </Link>
             </div>
           </div>

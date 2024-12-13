@@ -1,9 +1,10 @@
-  "use client";
+"use client";
 import { getProductData, productList } from "@/data/items";
 import { createContext, useContext, useState, useEffect } from "react";
 
 export const cartContext = createContext({
   items: [],
+  login: [],
   getProductQuantity: () => {},
   addItemToCart: () => {},
   removeItemFromCart: () => {},
@@ -16,6 +17,14 @@ export const useCartContext = () => {
 };
 
 export function CartProvider({ children }) {
+  const [isLogin, setIsLogin] = useState(
+    JSON.parse(localStorage.getItem("isLogin"))
+  );
+
+  useEffect(() => {
+    localStorage.setItem("isLogin", JSON.stringify(isLogin));
+  }, [isLogin]);
+
   useEffect(() => {
     let cartFromLocalStorage = localStorage.getItem("cartItems");
     if (cartFromLocalStorage == "null") {
@@ -85,6 +94,8 @@ export function CartProvider({ children }) {
 
   const contextValue = {
     items: cartProducts,
+    isLogin: isLogin,
+    setIsLogin: setIsLogin,
     getProductQuantity,
     addItemToCart,
     removeItemFromCart,

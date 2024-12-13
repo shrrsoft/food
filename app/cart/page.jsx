@@ -21,18 +21,7 @@ const page = () => {
   tax = tax + totalPrice * 0.09;
 
   return (
-    <>
-      <div className="border w-[80%] mx-auto mt-8 py-4 hidden sm:block">
-        <div className="flex items-center gap-14">
-          <div className="w-20"></div>
-          <div className="w-[70%] grid grid-cols-3 gap-4 text-center">
-            <h3 className="mr-5">نام محصول</h3>
-            <h5>قیمت واحد </h5>
-            <span>تعداد </span>
-          </div>
-          <span>مجموع قیمت </span>
-        </div>
-      </div>
+    <div className=" w-[80%] mx-auto mt-8 py-4 hidden sm:block">
       {items.map((item) => (
         <div key={item.id} className="mx-auto">
           <CartItem id={item.id} quantity={item.quantity} />
@@ -51,8 +40,8 @@ const page = () => {
           </div>
           <div className="flex justify-center items-center">
             <Link
-              href="/"
-              className="bg-green-900 text-white p-2 rounded m-4 w-32 text-center hover:bg-green-600 hover:text-black">
+              href="#"
+              className="bg-[#3fab46db] text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all">
               پرداخت
             </Link>
           </div>
@@ -62,7 +51,7 @@ const page = () => {
           سبد خالی است!
         </h3>
       )}
-    </>
+    </div>
   );
 };
 

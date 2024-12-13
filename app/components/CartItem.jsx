@@ -10,7 +10,7 @@ const CartItem = ({ id, quantity }) => {
 
   return (
     <div className="border shadow-md w-[80%] mx-auto my-2">
-      <div className="flex sm:flex-row flex-col items-center justify-center gap-14 p-3">
+      <div className="flex sm:flex-row flex-col items-center justify-around p-3">
         <img src={product.imageUrl} alt="" className="w-20 rounded-md m-1" />
         <div className="w-[70%] grid sm:grid-cols-3 grid-cols-1 gap-4 text-center justify-center items-center">
           <h3>{product.title}</h3>
@@ -34,7 +34,6 @@ const CartItem = ({ id, quantity }) => {
             </button>
           </div>
         </div>
-        <span className="w-28 text-center"></span>
       </div>
     </div>
   );
