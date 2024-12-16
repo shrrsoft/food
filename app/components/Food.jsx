@@ -3,6 +3,8 @@
 import { useCartContext } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
+import { CiTrash } from "react-icons/ci";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const Food = ({ product }) => {
   const cart = useCartContext();
@@ -27,29 +29,31 @@ const Food = ({ product }) => {
         <h3 className="text-left mt-4 px-3">{product.price} تومان</h3>
       </Link>
       {productQuantity > 0 ? (
-        <div className="flex w-full">
-          <button
-            onClick={() => cart.addItemToCart(product.id)}
-            className="border rounded-md w-8 h-8 pb-1.5 hover:bg-[#3fab46db] hover:text-white m-4 font-bold">
-            +
-          </button>
-          <span className="my-auto pb-2">{productQuantity}</span>
-          <button
-            onClick={() => cart.removeItemFromCart(product.id)}
-            className="border rounded-md w-8 h-8 pb-1.5 hover:bg-[#e51a21db] hover:text-white m-4 font-bold">
-            -
-          </button>
+        <div className="flex w-full justify-between px-2 my-3 bg-gray-300">
+          <div className="flex">
+            <button
+              onClick={() => cart.addItemToCart(product.id)}
+              className=" rounded-md w-8 h-8  hover:bg-[#3fab46db] hover:text-white font-bold">
+              <FiPlus className="mx-auto" />
+            </button>
+            <span className="my-auto pb-1 m-4">{productQuantity}</span>
+            <button
+              onClick={() => cart.removeItemFromCart(product.id)}
+              className=" rounded-md  w-8 h-8  hover:bg-[#e51a21db] hover:text-white font-bold">
+              <FiMinus className="mx-auto" />
+            </button>
+          </div>
           <button
             onClick={() => cart.deleteFromCart(product.id)}
-            className="border rounded-md w-20 text-sm h-8 pb-1.5 hover:bg-[#e51a21db] m-4 hover:text-white">
-            حذف سبد
+            className=" rounded-md w-8 text-2xl h-8 hover:bg-[#e51a21db] hover:text-white">
+            <CiTrash className="mx-auto" />
           </button>
         </div>
       ) : (
         <button
           onClick={() => cart.addItemToCart(product.id)}
-          className="border rounded-md w-8 h-8 pb-1.5 hover:bg-[#3fab46db] m-4 hover:text-white font-bold">
-          +
+          className=" rounded-md w-8 h-8 mx-2 my-3 hover:bg-[#3fab46db] hover:text-white font-bold">
+          <FiPlus className="mx-auto" />
         </button>
       )}
     </div>

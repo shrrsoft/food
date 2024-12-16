@@ -4,6 +4,7 @@ import { GiFullPizza, GiSandwich } from "react-icons/gi";
 import { FaHamburger } from "react-icons/fa";
 import { FaBowlFood } from "react-icons/fa6";
 import { RiDrinksFill } from "react-icons/ri";
+import CartReducer from "@/context/CartReducer";
 
 
 
@@ -62,8 +63,8 @@ export default function Home() {
         <div className="flex mx-auto flex-wrap mb-8 justify-center">
         {productList.map((item) => (item.category == "drinks" ? <Food key={item.id} product={item} /> :null))}
         </div>
-        
       </div>
+      <CartReducer />
     </>
   );
 }

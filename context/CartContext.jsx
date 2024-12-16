@@ -16,10 +16,19 @@ export const useCartContext = () => {
   return useContext(cartContext);
 };
 
+const isLoginFromLocalStorage = localStorage.getItem("isLogin");
+
 export function CartProvider({ children }) {
-  const [isLogin, setIsLogin] = useState(
-    JSON.parse(localStorage.getItem("isLogin"))
-  );
+  const [isLogin, setIsLogin] = useState(JSON.parse(isLoginFromLocalStorage));
+
+  // useEffect(() => {
+  //   let isLoginFromLocalStorage = localStorage.getItem("isLogin");
+  //   if (isLoginFromLocalStorage != "true") {
+  //     setIsLogin(false);
+  //   } else {
+  //     setIsLogin(true);
+  //   }
+  // }, []);
 
   useEffect(() => {
     localStorage.setItem("isLogin", JSON.stringify(isLogin));
