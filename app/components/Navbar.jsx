@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="w-full border-b-2 py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white ">
+      <div className="w-full border-b-2 py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">

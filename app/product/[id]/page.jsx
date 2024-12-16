@@ -1,5 +1,6 @@
 "use client";
 import { getProductData } from "@/data/items";
+import Link from "next/link";
 import { useParams } from "next/navigation";
 
 const Page = () => {
@@ -21,6 +22,11 @@ const Page = () => {
         alt={product.title}
       />
       <p className="text-xl mb-10">{product.details}</p>
+      <Link
+        href="/"
+        className="bg-[#264aa6db] text-white p-2 block w-64 mx-auto rounded-md mb-4">
+        برگشت به صفحه ی اصلی
+      </Link>
     </div>
   );
 };

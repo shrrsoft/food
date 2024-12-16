@@ -1,5 +1,7 @@
 import { useCartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
+import { CiTrash } from "react-icons/ci";
+import { FiPlus, FiMinus } from "react-icons/fi";
 
 const CartItem = ({ id, quantity }) => {
   const product = getProductData(id);
@@ -15,22 +17,22 @@ const CartItem = ({ id, quantity }) => {
         <div className="w-[70%] grid sm:grid-cols-3 grid-cols-1 gap-4 text-center justify-center items-center">
           <h3>{product.title}</h3>
           <h5>{numberWithCommas(product.price)} تومان </h5>
-          <div>
+          <div className="flex">
             <button
               onClick={() => cart.addItemToCart(product.id)}
-              className="border rounded-md w-8 h-8 pb-1.5 hover:bg-[#3fab46db] hover:text-white m-1 font-bold">
-              +
+              className=" rounded-md w-8 h-8  hover:bg-[#3fab46db] hover:text-white font-bold">
+              <FiPlus className="mx-auto" />
             </button>
-            <span className="mx-2">{quantity}</span>
+            <span className="my-auto pb-1 m-4">{quantity}</span>
             <button
               onClick={() => cart.removeItemFromCart(product.id)}
-              className="border rounded-md w-8 h-8 pb-1.5 hover:bg-[#e51a21db] hover:text-white m-1 font-bold">
-              -
+              className=" rounded-md  w-8 h-8  hover:bg-[#e51a21db] hover:text-white font-bold">
+              <FiMinus className="mx-auto" />
             </button>
             <button
               onClick={() => cart.deleteFromCart(product.id)}
-              className="border rounded-md w-20 text-sm h-8 pb-1.5 hover:bg-[#e51a21db] m-1 hover:text-white">
-              حذف سبد
+              className=" rounded-md w-8 text-2xl h-8 hover:bg-[#e51a21db] hover:text-white">
+              <CiTrash className="mx-auto" />
             </button>
           </div>
         </div>
