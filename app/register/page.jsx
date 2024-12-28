@@ -2,7 +2,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const page = () => {
+const RegisterPage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [password, setPassword] = useState("");
   const [repeatedPassword, setRepeatedPassword] = useState("");
@@ -79,4 +79,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default RegisterPage;

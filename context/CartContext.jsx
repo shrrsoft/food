@@ -16,39 +16,32 @@ export const useCartContext = () => {
   return useContext(cartContext);
 };
 
-const isLoginFromLocalStorage = localStorage.getItem("isLogin");
-
 export function CartProvider({ children }) {
+  // Login Logic
+  const isLoginFromLocalStorage = localStorage.getItem("isLogin");
   const [isLogin, setIsLogin] = useState(JSON.parse(isLoginFromLocalStorage));
-
-  // useEffect(() => {
-  //   let isLoginFromLocalStorage = localStorage.getItem("isLogin");
-  //   if (isLoginFromLocalStorage != "true") {
-  //     setIsLogin(false);
-  //   } else {
-  //     setIsLogin(true);
-  //   }
-  // }, []);
-
   useEffect(() => {
     localStorage.setItem("isLogin", JSON.stringify(isLogin));
   }, [isLogin]);
 
+  // Cart Logic
+  const initialProductState = [];
+  let [cartProducts, setCartProducts] = useState(initialProductState);
+
   useEffect(() => {
-    let cartFromLocalStorage = localStorage.getItem("cartItems");
-    if (cartFromLocalStorage == "null") {
-      setCartProducts([]);
-    } else {
+    const cartFromLocalStorage = localStorage.getItem("cartItems");
+    if (cartFromLocalStorage) {
       setCartProducts(JSON.parse(cartFromLocalStorage));
     }
   }, []);
 
-  let [cartProducts, setCartProducts] = useState([]);
-
   useEffect(() => {
-    localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+    if (cartProducts !== initialProductState) {
+      localStorage.setItem("cartItems", JSON.stringify(cartProducts));
+    }
   }, [cartProducts]);
 
+  // Cart Functions
   function getProductQuantity(id) {
     const quantity = cartProducts?.find((item) => id === item.id)?.quantity;
     if (quantity === undefined) {

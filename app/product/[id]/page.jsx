@@ -3,7 +3,7 @@ import { getProductData } from "@/data/items";
 import Link from "next/link";
 import { useParams } from "next/navigation";
 
-const Page = () => {
+const ProductPage = () => {
   const params = useParams();
   const product = getProductData(parseInt(params.id));
   function numberWithCommas(x) {
@@ -31,4 +31,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default ProductPage;

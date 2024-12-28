@@ -5,19 +5,20 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const page = () => {
+const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
   const [password, setPassword] = useState("");
   const [isError, setIsError] = useState(false);
   const { isLogin, setIsLogin } = useCartContext();
   const router = useRouter();
 
-  const mobileNumberFromLocal = JSON.parse(
-    localStorage.getItem("userAndPass")
-  ).mobileNumber;
-  const passwordFromLocal = JSON.parse(
-    localStorage.getItem("userAndPass")
-  )?.password;
+  const userAndPassFromLocal = localStorage.getItem("userAndPass");
+  const mobileNumberFromLocal = userAndPassFromLocal
+    ? JSON.parse(localStorage.getItem("userAndPass")).mobileNumber
+    : "";
+  const passwordFromLocal = userAndPassFromLocal
+    ? JSON.parse(localStorage.getItem("userAndPass"))?.password
+    : "";
 
   function handleLogin(e) {
     e.preventDefault();
@@ -88,4 +89,4 @@ const page = () => {
     </div>
   );
 };
-export default page;
+export default LoginPage;

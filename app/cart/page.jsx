@@ -5,7 +5,7 @@ import { useCartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
 import CartItem from "../components/CartItem";
 
-const page = () => {
+const CartPage = () => {
   const { items } = useCartContext();
   let totalPrice = 0;
   let tax = 0;
@@ -72,4 +72,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default CartPage;
