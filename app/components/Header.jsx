@@ -9,6 +9,8 @@ import CounterBadg from "./CounterBadg";
 import Branch from "./Branch";
 import { IoCartOutline, IoClose } from "react-icons/io5";
 import { useCartContext } from "@/context/CartContext";
+import MobileNavbar from "./MobileMenu";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
@@ -26,13 +28,12 @@ const Header = () => {
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">
               <div className="bg-[#E51A21] w-12 h-12 rounded-full flex justify-center items-center lg:hidden">
-                <div
-                  className={`bg-[#E51A21]/80 h-screen fixed z-20 right-0 top-16 overflow-hidden origin-right transition-all ease-in-out ${
-                    isOpen ? "w-full" : "w-0"
-                  }`}
-                  onClick={() => SetIsOpen(false)}>
-                  <div className="flex flex-col gap-1 items-center p-1 text-white "></div>
-                </div>
+                <MobileNavbar
+                  isOpen={isOpen}
+                  SetIsOpen={SetIsOpen}
+                  isLogin={isLogin}
+                  handleLogin={handleLogin}
+                />
                 <div>
                   {isOpen ? (
                     <IoClose
@@ -79,6 +80,9 @@ const Header = () => {
                 {isLogin ? "خروج" : "ورود"}
               </Link>
             </div>
+            <Link className="mb-1 text-sm font-bold block md:hidden" href="/">
+              <IoHomeOutline className="text-2xl mx-auto" />
+            </Link>
           </div>
         </div>
       </div>

@@ -27,13 +27,13 @@ const CartPage = () => {
 
   return (
     <>
-      <div className="mx-auto p-4 flex flex-col gap-4 border border-2 w-[40%]">
+      <div className="mx-auto p-4 flex flex-col gap-4 border-2 w-[80%] md:w-[40%]">
         <h2 className="mx-auto font-bold">اطلاعات مشتری</h2>
         <h3>نام : ..................</h3>
         <h3> شماره تماس : ..................</h3>
         <h3> آدرس: .........................................</h3>
       </div>
-      <div className=" w-[80%] mx-auto mt-8 py-4 hidden sm:block">
+      <div className=" md:w-[80%] mx-auto mt-8 py-4 sm:block">
         {items.map((item) => (
           <div key={item.id} className="mx-auto">
             <CartItem id={item.id} quantity={item.quantity} />
@@ -49,7 +49,7 @@ const CartPage = () => {
             </div>
             <div className="flex justify-center mt-4">
               هزینه ارسال : {numberWithCommas(deliveryCost)} تومان
-            </div>{" "}
+            </div>
             <div className="flex justify-center border-2 border-red-500 rounded-sm py-2 w-72 mx-auto mt-4">
               مبلغ قابل پرداخت :{" "}
               {numberWithCommas(totalPrice + tax + deliveryCost)} تومان

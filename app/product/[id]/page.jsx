@@ -11,7 +11,7 @@ const ProductPage = () => {
   }
 
   return (
-    <div className="text-center">
+    <div className="text-center w-[90%] mx-auto">
       <h3 className="font-bold text-2xl mb-5">{product.title}</h3>
       <h3 className="font-bold mb-5">
         {numberWithCommas(product.price)} تومان
