@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <>
+    <footer>
       <div className="w-full bg-gray-800 p-4">
         <div className="max-w-[85%] mx-auto">
           <div className="bg-white w-32 mx-auto rounded-sm">
@@ -27,7 +27,7 @@ const Footer = () => {
           <h4>Copyright © 2024 Seyed Hamidreza Razavi. All Rights Reserved</h4>
         </div>
       </div>
-    </>
+    </footer>
   );
 };
 

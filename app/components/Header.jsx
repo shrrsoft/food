@@ -10,7 +10,7 @@ import Branch from "./Branch";
 import { IoCartOutline, IoClose } from "react-icons/io5";
 import { useCartContext } from "@/context/CartContext";
 
-const Navbar = () => {
+const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
   const { isLogin, setIsLogin } = useCartContext();
   function handleLogin() {
@@ -20,7 +20,7 @@ const Navbar = () => {
   }
 
   return (
-    <>
+    <header>
       <div className="w-full border-b-2 py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
@@ -82,8 +82,8 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-    </>
+    </header>
   );
 };
 
-export default Navbar;
+export default Header;
