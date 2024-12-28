@@ -21,16 +21,16 @@ const CartPage = () => {
   });
   tax = tax + totalPrice * 0.09;
 
-  const mobileNumberFromLocal = JSON.parse(
-    localStorage.getItem("userAndPass")
-  ).mobileNumber;
+  // const mobileNumberFromLocal = JSON.parse(
+  //   localStorage.getItem("userAndPass")
+  // ).mobileNumber;
 
   return (
     <>
       <div className="mx-auto p-4 flex flex-col gap-4 border border-2 w-[40%]">
         <h2 className="mx-auto font-bold">اطلاعات مشتری</h2>
         <h3>نام : ..................</h3>
-        <h3> شماره تماس : {mobileNumberFromLocal}</h3>
+        <h3> شماره تماس : ..................</h3>
         <h3> آدرس: .........................................</h3>
       </div>
       <div className=" w-[80%] mx-auto mt-8 py-4 hidden sm:block">

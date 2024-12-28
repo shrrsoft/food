@@ -12,16 +12,15 @@ const LoginPage = () => {
   const { isLogin, setIsLogin } = useCartContext();
   const router = useRouter();
 
-  const userAndPassFromLocal = localStorage.getItem("userAndPass");
-  const mobileNumberFromLocal = userAndPassFromLocal
-    ? JSON.parse(localStorage.getItem("userAndPass")).mobileNumber
-    : "";
-  const passwordFromLocal = userAndPassFromLocal
-    ? JSON.parse(localStorage.getItem("userAndPass"))?.password
-    : "";
-
   function handleLogin(e) {
     e.preventDefault();
+    const userAndPassFromLocal = localStorage.getItem("userAndPass");
+    const mobileNumberFromLocal = userAndPassFromLocal
+      ? JSON.parse(userAndPassFromLocal).mobileNumber
+      : "";
+    const passwordFromLocal = userAndPassFromLocal
+      ? JSON.parse(userAndPassFromLocal)?.password
+      : "";
     if (
       mobileNumber == mobileNumberFromLocal &&
       password == passwordFromLocal

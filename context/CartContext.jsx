@@ -18,10 +18,17 @@ export const useCartContext = () => {
 
 export function CartProvider({ children }) {
   // Login Logic
-  const isLoginFromLocalStorage = localStorage.getItem("isLogin");
-  const [isLogin, setIsLogin] = useState(JSON.parse(isLoginFromLocalStorage));
+  const [isLogin, setIsLogin] = useState("");
   useEffect(() => {
-    localStorage.setItem("isLogin", JSON.stringify(isLogin));
+    const isLoginFromLocalStorage = localStorage.getItem("isLogin");
+    if (isLoginFromLocalStorage) {
+      setIsLogin(JSON.parse(isLoginFromLocalStorage));
+    }
+  }, []);
+  useEffect(() => {
+    if (isLogin !== "") {
+      localStorage.setItem("isLogin", JSON.stringify(isLogin));
+    }
   }, [isLogin]);
 
   // Cart Logic

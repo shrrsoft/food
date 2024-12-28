@@ -10,7 +10,7 @@ const RegisterPage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
   const router = useRouter();
 
-  function handleLogin(e) {
+  function handleRegister(e) {
     e.preventDefault();
     if (password == repeatedPassword && password != "") {
       localStorage.setItem(
@@ -30,7 +30,7 @@ const RegisterPage = () => {
       <form
         className="mx-auto my-3 flex flex-col gap-4 w-[15rem]"
         action=""
-        onSubmit={handleLogin}>
+        onSubmit={handleRegister}>
         <input
           required
           className="text-black p-1 outline-none rounded-md border text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
