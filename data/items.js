@@ -80,21 +80,21 @@ export const productList = [
         category: "sandwich"
     },{
         id : 12,
-        title: "ساندویچ ژامبون تنوری",
+        title: "ساندویچ بیف هات داگ",
         details: "ژامبون گوشت و مرغ تنوری شده ، قارچ ، پنیر موزارلا ، کاهو ، گوجه ، خیارشور و نان فرانسوی کنجدی",
         price : 256000,
         imageUrl : "/images/ژامبون تنوری.jpg",
         category: "sandwich"
     },{
         id : 13,
-        title: "ساندویچ مرغ با قارچ و پنیر",
+        title: "ساندویچ کراکف",
         details: "استیک مرغ ، قارچ ، پنیر موزارلا ، کاهو ، گوجه ، خیارشور و نان فرانسوی کنجدی",
         price : 249000,
         imageUrl : "/images/مرغ با قارچ.jpg",
         category: "sandwich"
     },{
         id : 14,
-        title: "ساندویچ رست بیف با سس قارچ",
+        title: "ساندویچ هات داگ رست بیف",
         details: "رست بیف ، سس قارچ ، کاهو ، گوجه ، خیارشور و نان فرانسوی کنجدی",
         price : 358000,
         imageUrl : "/images/رست بیف.jpg",

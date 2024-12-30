@@ -12,6 +12,7 @@ import { useCartContext } from "@/context/CartContext";
 import MobileNavbar from "./MobileMenu";
 import { IoHomeOutline } from "react-icons/io5";
 import Navbar from "./Navbar";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
@@ -21,6 +22,7 @@ const Header = () => {
       setIsLogin(false);
     }
   }
+  const pathname = usePathname();
 
   return (
     <header>
@@ -88,9 +90,13 @@ const Header = () => {
         </div>
         <Navbar />
       </div>
-      <div className="md:hidden w-[80%] mx-auto">
-        <SearchBox className="hidden" />
-      </div>
+      {pathname == "/" ? (
+        <div className="md:hidden w-[80%] mx-auto mb-8">
+          <SearchBox />
+        </div>
+      ) : (
+        ""
+      )}
     </header>
   );
 };
