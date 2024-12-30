@@ -11,6 +11,7 @@ import { IoCartOutline, IoClose } from "react-icons/io5";
 import { useCartContext } from "@/context/CartContext";
 import MobileNavbar from "./MobileMenu";
 import { IoHomeOutline } from "react-icons/io5";
+import Navbar from "./Navbar";
 
 const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const Header = () => {
 
   return (
     <header>
-      <div className="w-full border-b-2 py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
+      <div className="w-full py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">
@@ -59,12 +60,12 @@ const Header = () => {
               </div>
             </div>
             <Branch />
-            <SearchBox />
+            <div className="hidden md:flex">
+              <SearchBox />
+            </div>
           </div>
           <div className="flex items-center gap-2 my-4">
-            <Link
-              href={isLogin ? "/cart" : "/login"}
-              className="flex items-center">
+            <Link href="/cart" className="flex items-center">
               <CounterBadg className="" />
               <IoCartOutline className="text-3xl -mr-1.5" />
             </Link>
@@ -85,6 +86,10 @@ const Header = () => {
             </Link>
           </div>
         </div>
+        <Navbar />
+      </div>
+      <div className="md:hidden w-[80%] mx-auto">
+        <SearchBox className="hidden" />
       </div>
     </header>
   );

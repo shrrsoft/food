@@ -16,8 +16,10 @@ const Footer = () => {
           </div>
           <div className="flex md:flex-row md:justify-between flex-col text-center justify-center text-white mt-4 *:mb-3 ">
             <p>فست فود زنجیره ای مانی</p>
-            <p>دفتر مرکزی : تهران، خیابان پیروزی پلاک 256 </p>
-            <p>تلفن : 12345678 - 021</p>
+            <p>
+              دفتر مرکزی : تهران، خیابان پیروزی، خیابان نیروی هوایی، پلاک 000
+            </p>
+            <p>تلفن : 4459605 - 0912</p>
           </div>
         </div>
       </div>
