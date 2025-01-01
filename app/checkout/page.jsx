@@ -1,21 +1,20 @@
 "use client";
 
 import Link from "next/link";
-import { useCartContext } from "@/context/CartContext";
+import { cartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
 import CartItem from "../components/CartItem";
 import { MdOutlineDeliveryDining } from "react-icons/md";
 import { TbPaperBag } from "react-icons/tb";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import UserInformation from "../components/UserInformation";
 
 const CheckoutPage = () => {
   const [delivery, setDelivery] = useState(true);
-  const { items } = useCartContext();
+  const { items } = useContext(cartContext);
   let totalPrice = 0;
   let tax = 0;
   const deliveryCost = delivery ? 20000 : 0;
-
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
@@ -26,9 +25,6 @@ const CheckoutPage = () => {
   });
   tax = tax + totalPrice * 0.09;
 
-  // const mobileNumberFromLocal = JSON.parse(
-  //   localStorage.getItem("userAndPass")
-  // ).mobileNumber;
   return (
     <>
       <UserInformation />

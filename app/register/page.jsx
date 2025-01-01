@@ -1,25 +1,27 @@
 "use client";
+import { userContext } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const RegisterPage = () => {
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [password, setPassword] = useState("");
-  const [repeatedPassword, setRepeatedPassword] = useState("");
   const [isError, setIsError] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [repeatedPassword, setRepeatedPassword] = useState("");
+  const {
+    password,
+    setUserMobileNumber,
+    setPassword,
+    setUserAdress,
+    setUserName,
+  } = useContext(userContext);
+
   const router = useRouter();
 
   function handleRegister(e) {
     e.preventDefault();
     if (password == repeatedPassword && password != "") {
-      localStorage.setItem(
-        "userAndPass",
-        JSON.stringify({ mobileNumber: mobileNumber, password: password })
-      );
       setIsCorrect(true);
       setIsError(false);
-
       setTimeout(() => router.replace("/login"), 2000);
     } else {
       setIsError(true);
@@ -34,10 +36,18 @@ const RegisterPage = () => {
         <input
           required
           className="text-black p-1 outline-none rounded-md border text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+          type="text"
+          name="userName"
+          placeholder="نام و نام خانوادگی "
+          onChange={(e) => setUserName(e.target.value)}
+        />
+        <input
+          required
+          className="text-black p-1 outline-none rounded-md border text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
           type="number"
           name="mobileNumber"
           placeholder="شماره موبایل"
-          onChange={(e) => setMobileNumber(e.target.value)}
+          onChange={(e) => setUserMobileNumber(e.target.value)}
         />
         <input
           required
@@ -55,6 +65,11 @@ const RegisterPage = () => {
           placeholder="تکرار رمز عبور"
           onChange={(e) => setRepeatedPassword(e.target.value)}
         />
+        <textarea
+          required
+          className="text-black p-1 outline-none rounded-md border text-right"
+          placeholder=" آدرس"
+          onChange={(e) => setUserAdress(e.target.value)}></textarea>
         <input
           className="bg-[#3fab46db] rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-white hover:scale-105 transition-all"
           type="submit"

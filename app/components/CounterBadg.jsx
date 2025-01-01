@@ -1,7 +1,8 @@
-import { useCartContext } from "@/context/CartContext";
+import { cartContext } from "@/context/CartContext";
+import { useContext } from "react";
 
 const CounterBadg = () => {
-  const { items } = useCartContext();
+  const { items } = useContext(cartContext);
 
   let productCount = items?.reduce((sum, product) => sum + product.quantity, 0);
   return (

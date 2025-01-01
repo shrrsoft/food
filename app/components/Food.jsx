@@ -1,13 +1,14 @@
 "use client";
 
-import { useCartContext } from "@/context/CartContext";
+import { cartContext } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
+import { useContext } from "react";
 import { CiTrash } from "react-icons/ci";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 const Food = ({ product }) => {
-  const cart = useCartContext();
+  const cart = useContext(cartContext);
   const productQuantity = cart.getProductQuantity(product.id);
 
   return (

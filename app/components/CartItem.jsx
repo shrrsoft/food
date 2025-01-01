@@ -1,11 +1,12 @@
-import { useCartContext } from "@/context/CartContext";
+import { cartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
+import { useContext } from "react";
 import { CiTrash } from "react-icons/ci";
 import { FiPlus, FiMinus } from "react-icons/fi";
 
 const CartItem = ({ id, quantity }) => {
   const product = getProductData(id);
-  const cart = useCartContext();
+  const cart = useContext(cartContext);
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }

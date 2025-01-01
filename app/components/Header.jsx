@@ -4,19 +4,19 @@ import Image from "next/image";
 import { LuMenu } from "react-icons/lu";
 import SearchBox from "./SearchBox";
 import Link from "next/link";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import CounterBadg from "./CounterBadg";
 import Branch from "./Branch";
 import { IoCartOutline, IoClose } from "react-icons/io5";
-import { useCartContext } from "@/context/CartContext";
 import MobileNavbar from "./MobileMenu";
 import { IoHomeOutline } from "react-icons/io5";
 import Navbar from "./Navbar";
 import { usePathname } from "next/navigation";
+import { userContext } from "@/context/UserContext";
 
 const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
-  const { isLogin, setIsLogin } = useCartContext();
+  const { isLogin, setIsLogin } = useContext(userContext);
   function handleLogin() {
     if (isLogin == true) {
       setIsLogin(false);
@@ -30,7 +30,7 @@ const Header = () => {
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">
-              <div className="bg-[#E51A21] w-12 h-12 rounded-full flex justify-center items-center lg:hidden">
+              <div className="bg-[#E51A21] w-8 h-8 rounded-full flex justify-center items-center md:hidden">
                 <MobileNavbar
                   isOpen={isOpen}
                   SetIsOpen={SetIsOpen}
@@ -40,12 +40,12 @@ const Header = () => {
                 <div>
                   {isOpen ? (
                     <IoClose
-                      className=" text-3xl"
+                      className=" text-2xl"
                       onClick={() => SetIsOpen(false)}
                     />
                   ) : (
                     <LuMenu
-                      className="text-3xl"
+                      className="text-2xl"
                       onClick={() => SetIsOpen(true)}
                     />
                   )}

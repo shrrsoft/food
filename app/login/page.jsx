@@ -1,30 +1,21 @@
 "use client";
 
-import { useCartContext } from "@/context/CartContext";
+import { userContext } from "@/context/UserContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
 const LoginPage = () => {
   const [mobileNumber, setMobileNumber] = useState("");
-  const [password, setPassword] = useState("");
+  const [inputPassword, setInputPassword] = useState("");
   const [isError, setIsError] = useState(false);
-  const { isLogin, setIsLogin } = useCartContext();
+  const { isLogin, setIsLogin } = useContext(userContext);
   const router = useRouter();
+  const { userMobileNumber, password } = useContext(userContext);
 
   function handleLogin(e) {
     e.preventDefault();
-    const userAndPassFromLocal = localStorage.getItem("userAndPass");
-    const mobileNumberFromLocal = userAndPassFromLocal
-      ? JSON.parse(userAndPassFromLocal).mobileNumber
-      : "";
-    const passwordFromLocal = userAndPassFromLocal
-      ? JSON.parse(userAndPassFromLocal)?.password
-      : "";
-    if (
-      mobileNumber == mobileNumberFromLocal &&
-      password == passwordFromLocal
-    ) {
+    if (mobileNumber == userMobileNumber && inputPassword == password) {
       setTimeout(() => router.replace("/cart"), 1000);
       setIsError(false);
       setIsLogin(true);
@@ -61,7 +52,7 @@ const LoginPage = () => {
               type="password"
               name="password"
               placeholder="رمز عبور"
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={(e) => setInputPassword(e.target.value)}
             />
             <div className="flex">
               <input

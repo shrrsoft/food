@@ -1,12 +1,14 @@
 "use client";
 
 import Link from "next/link";
-import { useCartContext } from "@/context/CartContext";
+import { cartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
 import CartItem from "../components/CartItem";
+import { userContext } from "@/context/UserContext";
+import { useContext } from "react";
 
 const CartPage = () => {
-  const { items } = useCartContext();
+  const { items } = useContext(cartContext);
   let totalPrice = 0;
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -17,7 +19,7 @@ const CartPage = () => {
     totalPrice = totalPrice + product.price * item.quantity;
   });
 
-  const { isLogin, setIsLogin } = useCartContext();
+  const { isLogin, setIsLogin } = useContext(userContext);
 
   return (
     <>

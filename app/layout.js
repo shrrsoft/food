@@ -3,6 +3,8 @@ import "./globals.css";
 import Navbar from "./components/Header";
 import { CartProvider } from "@/context/CartContext";
 import Footer from "./components/Footer";
+import { UserProvider } from "@/context/UserContext";
+import Header from "./components/Header";
 
 
 const geistSans = localFont({
@@ -15,6 +17,11 @@ const geistMono = localFont({
   variable: "--font-geist-mono",
   weight: "100 900",
 });
+const vazirMatn = localFont({
+  src: "./fonts/Vazirmatn-Regular.woff2",
+  variable: "--font-vazir-matn",
+  weight: "100 900",
+});
 
 export const metadata = {
   title: "Maani FastFood",
@@ -23,17 +30,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-        <CartProvider>
-
+    <CartProvider>
+      <UserProvider>
     <html lang="fa" dir="rtl">     
-
       <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased md:mt-32 mt-20`}
-        > <Navbar />
+          className={` ${vazirMatn.variable} ${geistSans.variable} ${geistMono.variable} antialiased md:mt-32 mt-20`}
+          > <Header />
           {children}
           <Footer />
       </body>
+          
       </html>
+          </UserProvider>
           </CartProvider>
 
   );

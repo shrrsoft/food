@@ -12,26 +12,8 @@ export const cartContext = createContext({
   getTotalAmount: () => {},
 });
 
-export const useCartContext = () => {
-  return useContext(cartContext);
-};
-
 export function CartProvider({ children }) {
-  // Login Logic
-  const [isLogin, setIsLogin] = useState("");
-  useEffect(() => {
-    const isLoginFromLocalStorage = localStorage.getItem("isLogin");
-    if (isLoginFromLocalStorage) {
-      setIsLogin(JSON.parse(isLoginFromLocalStorage));
-    }
-  }, []);
-  useEffect(() => {
-    if (isLogin !== "") {
-      localStorage.setItem("isLogin", JSON.stringify(isLogin));
-    }
-  }, [isLogin]);
-
-  // Cart Logic
+  // set cart's product
   const initialProductState = [];
   let [cartProducts, setCartProducts] = useState(initialProductState);
 
@@ -103,8 +85,6 @@ export function CartProvider({ children }) {
 
   const contextValue = {
     items: cartProducts,
-    isLogin: isLogin,
-    setIsLogin: setIsLogin,
     getProductQuantity,
     addItemToCart,
     removeItemFromCart,
