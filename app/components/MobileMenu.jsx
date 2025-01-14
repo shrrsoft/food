@@ -1,6 +1,5 @@
 import Link from "next/link";
-import SearchBox from "./SearchBox";
-import Navbar from "./Navbar";
+
 
 const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
   return (
@@ -12,7 +11,7 @@ const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
       <div className="flex flex-col items-start p-4 pr-8 text-white text-2xl ">
         <ul className="flex flex-col gap-6">
           <li>
-            <Link href="/user-information">اطلاعات من</Link>
+            <Link href="/store/user-information">اطلاعات من</Link>
           </li>
           <li>
             <Link href=""> سابقه سفارش ها</Link>
@@ -27,7 +26,7 @@ const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
             <Link href="">پشتیبانی </Link>
           </li>
           <li>
-            <Link href="/login" onClick={handleLogin}>
+            <Link href="/store/login" onClick={handleLogin}>
               {isLogin ? "خروج" : "ورود"}
             </Link>
           </li>

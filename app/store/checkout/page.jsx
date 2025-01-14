@@ -3,11 +3,11 @@
 import Link from "next/link";
 import { cartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
-import CartItem from "../components/CartItem";
+import CartItem from "../../components/CartItem";
 import { MdOutlineDeliveryDining } from "react-icons/md";
 import { TbPaperBag } from "react-icons/tb";
 import { useContext, useState } from "react";
-import UserInformation from "../components/UserInformation";
+import UserInformation from "../../components/UserInformation";
 
 const CheckoutPage = () => {
   const [delivery, setDelivery] = useState(true);
@@ -69,7 +69,7 @@ const CheckoutPage = () => {
             </div>
             <div className="flex justify-center items-center">
               <Link
-                href="/payment-gateway"
+                href="/store/payment-gateway"
                 className="bg-[#3fab46db] text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all">
                 پرداخت
               </Link>

@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { cartContext } from "@/context/CartContext";
 import { getProductData } from "@/data/items";
-import CartItem from "../components/CartItem";
+import CartItem from "../../components/CartItem";
 import { userContext } from "@/context/UserContext";
 import { useContext } from "react";
 
@@ -36,7 +36,7 @@ const CartPage = () => {
             </div>
             <div className="flex justify-center items-center">
               <Link
-                href={isLogin ? "/checkout" : "/login"}
+                href={isLogin ? "/store/checkout" : "/store/login"}
                 className="bg-[#3fab46db] text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all mt-10">
                 تکمیل سفارش
               </Link>

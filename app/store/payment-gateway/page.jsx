@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 const PaymentGatewayPage = () => {
   return (
     <div className="text-center ">

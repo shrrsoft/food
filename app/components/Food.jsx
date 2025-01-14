@@ -11,14 +11,16 @@ const Food = ({ product }) => {
   const productQuantity = cart.getProductQuantity(product.id);
 
   return (
-    <div className="border border-slate-300/30 shadow-lg w-60 m-2 rounded-md hover:scale-105 z-10 transition-all">
-      <Link href={`/product/${product.id}`} className="*:hover:line-clamp-none">
+    <div className="border border-slate-300/30 shadow-lg w-60 m-2 rounded-md hover:scale-105 z-10 transition-all overflow-hidden">
+      <Link
+        href={`/store/product/${product.id}`}
+        className="*:hover:line-clamp-none">
         <Image
           src={product.imageUrl}
           width={300}
           height={300}
           alt="food image"
-          className="mx-auto rounded-t-md"
+          className="mx-auto"
         />
         <h3 className="text-center font-bold my-2 line-clamp-1">
           {product.title}

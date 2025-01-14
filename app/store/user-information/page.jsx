@@ -1,4 +1,4 @@
-import UserInformation from "../components/UserInformation";
+import UserInformation from "../../components/UserInformation";
 
 const UserInformationPage = () => {
   return (

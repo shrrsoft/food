@@ -5,7 +5,7 @@ const Navbar = () => {
     <div className="mt-2 border-t border-b p-2 hidden md:block">
       <ul className="flex gap-6 mr-20">
         <li>
-          <Link href="/user-information">اطلاعات من</Link>
+          <Link href="/store/user-information">اطلاعات من</Link>
         </li>
         <li>
           <Link href=""> سابقه سفارش ها</Link>

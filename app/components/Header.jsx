@@ -25,7 +25,7 @@ const Header = () => {
   const pathname = usePathname();
 
   return (
-    <header>
+    <header className="md:mb-36 mb-20">
       <div className="w-full py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
@@ -67,30 +67,32 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-2 my-4">
-            <Link href="/cart" className="flex items-center">
+            <Link href="store/cart" className="flex items-center">
               <CounterBadg className="" />
               <IoCartOutline className="text-3xl -mr-1.5" />
             </Link>
             <div className="sm:flex gap-2 bg-[#E51A21] px-4 py-1 rounded-xl text-white hidden">
-              <Link className="mb-1 text-sm font-bold" href="/">
-                صفحه اصلی
+              <Link className="mb-1 text-sm font-bold" href="/store">
+                منوی آنلاین
               </Link>
               <div className="border"></div>
               <Link
                 className="mb-1 text-sm font-bold"
-                href="/login"
+                href="/store/login"
                 onClick={handleLogin}>
                 {isLogin ? "خروج" : "ورود"}
               </Link>
             </div>
-            <Link className="mb-1 text-sm font-bold block md:hidden" href="/">
+            <Link
+              className="mb-1 text-sm font-bold block md:hidden"
+              href="/store">
               <IoHomeOutline className="text-2xl mx-auto" />
             </Link>
           </div>
         </div>
         <Navbar />
       </div>
-      {pathname == "/" ? (
+      {pathname == "/store" ? (
         <div className="md:hidden w-[80%] mx-auto mb-8">
           <SearchBox />
         </div>

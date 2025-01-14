@@ -22,7 +22,7 @@ const RegisterPage = () => {
     if (password == repeatedPassword && password != "") {
       setIsCorrect(true);
       setIsError(false);
-      setTimeout(() => router.replace("/login"), 2000);
+      setTimeout(() => router.replace("/store/login"), 2000);
     } else {
       setIsError(true);
     }

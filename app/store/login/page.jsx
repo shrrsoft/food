@@ -16,7 +16,7 @@ const LoginPage = () => {
   function handleLogin(e) {
     e.preventDefault();
     if (mobileNumber == userMobileNumber && inputPassword == password) {
-      setTimeout(() => router.replace("/cart"), 1000);
+      setTimeout(() => router.replace("/store/cart"), 1000);
       setIsError(false);
       setIsLogin(true);
     } else {
@@ -26,7 +26,7 @@ const LoginPage = () => {
   }
 
   function loadHomePage() {
-    setTimeout(() => router.replace("./"), 0);
+    setTimeout(() => router.replace("/store"), 0);
   }
   return (
     <>
@@ -61,7 +61,7 @@ const LoginPage = () => {
                 value="ورود "
               />
               <Link
-                href="/register"
+                href="/store/register"
                 className="bg-[#264aa6db] rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-center text-white hover:scale-105 transition-all">
                 عضویت
               </Link>
