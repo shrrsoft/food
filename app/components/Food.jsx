@@ -4,8 +4,7 @@ import { cartContext } from "@/context/CartContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useContext } from "react";
-import { CiTrash } from "react-icons/ci";
-import { FiPlus, FiMinus } from "react-icons/fi";
+import Button from "./QtyButton";
 
 const Food = ({ product }) => {
   const cart = useContext(cartContext);
@@ -32,30 +31,16 @@ const Food = ({ product }) => {
       {productQuantity > 0 ? (
         <div className="flex w-full justify-between px-2 my-3 bg-gray-300">
           <div className="flex">
-            <button
-              onClick={() => cart.addItemToCart(product.id)}
-              className=" rounded-md w-8 h-8  hover:bg-[#3fab46db] hover:text-white font-bold">
-              <FiPlus className="mx-auto" />
-            </button>
+            <Button product={product} variant="add" />
             <span className="my-auto pb-1 m-4">{productQuantity}</span>
-            <button
-              onClick={() => cart.removeItemFromCart(product.id)}
-              className=" rounded-md  w-8 h-8  hover:bg-[#e51a21db] hover:text-white font-bold">
-              <FiMinus className="mx-auto" />
-            </button>
+            <Button product={product} variant="remove" />
           </div>
-          <button
-            onClick={() => cart.deleteFromCart(product.id)}
-            className=" rounded-md w-8 text-2xl h-8 hover:bg-[#e51a21db] hover:text-white">
-            <CiTrash className="mx-auto" />
-          </button>
+          <Button product={product} variant="delete" />
         </div>
       ) : (
-        <button
-          onClick={() => cart.addItemToCart(product.id)}
-          className=" rounded-md w-8 h-8 mx-2 my-3 hover:bg-[#3fab46db] hover:text-white font-bold">
-          <FiPlus className="mx-auto" />
-        </button>
+        <div className="px-2 my-3">
+          <Button product={product} variant="add" />
+        </div>
       )}
     </div>
   );
