@@ -11,7 +11,7 @@ const Food = ({ product }) => {
   const productQuantity = cart.getProductQuantity(product.id);
 
   return (
-    <div className="border border-slate-300/30 shadow-lg w-60 m-2 rounded-md hover:scale-105 z-10 transition-all overflow-hidden">
+    <div className="border border-slate-300/30 shadow-lg w-60 m-2 rounded-md hover:scale-105 z-10 transition-all duration-500 overflow-hidden">
       <Link
         href={`/store/product/${product.id}`}
         className="*:hover:line-clamp-none">

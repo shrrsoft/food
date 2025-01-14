@@ -73,7 +73,7 @@ const Header = () => {
             </Link>
             <div className="sm:flex gap-2 bg-[#E51A21] px-4 py-1 rounded-xl text-white hidden">
               <Link className="mb-1 text-sm font-bold" href="/store">
-                منوی آنلاین
+                صفحه اصلی
               </Link>
               <div className="border"></div>
               <Link

@@ -19,6 +19,9 @@ const Navbar = () => {
         <li>
           <Link href="">پشتیبانی </Link>
         </li>
+        <li>
+          <Link href="/">بلاگ </Link>
+        </li>
       </ul>
     </div>
   );
