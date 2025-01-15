@@ -22,7 +22,7 @@ export default function RootLayout({ children }) {
     <CartProvider>
       <UserProvider>
         <html lang="fa" dir="rtl">     
-          <body className={` ${vazirMatn.variable} antialiased `}>
+          <body className={` ${vazirMatn.variable} antialiased`}>
             {children}
             <Footer />
           </body>

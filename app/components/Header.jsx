@@ -17,11 +17,13 @@ import { userContext } from "@/context/UserContext";
 const Header = () => {
   const [isOpen, SetIsOpen] = useState(false);
   const { isLogin, setIsLogin } = useContext(userContext);
+
   function handleLogin() {
     if (isLogin == true) {
       setIsLogin(false);
     }
   }
+
   const pathname = usePathname();
 
   return (
@@ -67,7 +69,7 @@ const Header = () => {
             </div>
           </div>
           <div className="flex items-center gap-2 my-4">
-            <Link href="store/cart" className="flex items-center">
+            <Link href="/store/cart" className="flex items-center">
               <CounterBadg className="" />
               <IoCartOutline className="text-3xl -mr-1.5" />
             </Link>

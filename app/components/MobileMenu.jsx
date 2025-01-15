@@ -1,10 +1,9 @@
 import Link from "next/link";
 
-
 const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
   return (
     <div
-      className={`bg-gradient-to-l from-[#E51A21] to-[#E51A21]/50 h-screen fixed z-20 right-0 top-16 overflow-hidden origin-right transition-all ease-in-out ${
+      className={`bg-black/60 backdrop-blur-md h-screen fixed z-20 right-0 top-16 overflow-hidden origin-right transition-all ease-in-out ${
         isOpen ? "w-full" : "w-0"
       }`}
       onClick={() => SetIsOpen(false)}>
@@ -24,6 +23,9 @@ const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
           </li>
           <li>
             <Link href="">پشتیبانی </Link>
+          </li>
+          <li>
+            <Link href="/">وبلاگ </Link>
           </li>
           <li>
             <Link href="/store/login" onClick={handleLogin}>

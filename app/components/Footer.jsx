@@ -2,8 +2,8 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <footer>
-      <div className="w-full bg-gray-800 p-4">
+    <footer className="min-[3500px]:w-[90%] mx-auto w-full">
+      <div className="bg-gray-800 p-4">
         <div className="max-w-[85%] mx-auto">
           <div className="bg-white w-32 mx-auto rounded-sm">
             <Image
