@@ -20,7 +20,7 @@ const Navbar = () => {
           <Link href="">پشتیبانی </Link>
         </li>
         <li>
-          <Link href="/">بلاگ </Link>
+          <Link href="/">صفحه اصلی </Link>
         </li>
       </ul>
     </div>

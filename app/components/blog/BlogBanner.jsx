@@ -82,7 +82,9 @@ const BlogBanner = () => {
             </div>
           </div>
         </div>
-        <img
+        <Image
+          width={200}
+          height={200}
           src="/images/fast-food-board-with-hamburger-french-fries-isolated-on-transparent-background-free-png.png"
           alt=""
           className="w-[40rem] drop-shadow-[-70px_20px_10px_rgba(0,0,0,0.5)] hidden lg:block"
