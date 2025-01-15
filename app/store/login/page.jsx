@@ -3,22 +3,24 @@
 import { userContext } from "@/context/UserContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 
 const LoginPage = () => {
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [inputPassword, setInputPassword] = useState("");
+  const inputPassword = useRef("");
+  const mobileNumber = useRef("");
   const [isError, setIsError] = useState(false);
   const { isLogin, setIsLogin } = useContext(userContext);
   const router = useRouter();
   const { userMobileNumber, password } = useContext(userContext);
 
   function handleLogin(e) {
-    e.preventDefault();
-    if (mobileNumber == userMobileNumber && inputPassword == password) {
-      setTimeout(() => router.replace("/store/cart"), 1000);
+    if (
+      mobileNumber.current == userMobileNumber &&
+      inputPassword.current == password
+    ) {
       setIsError(false);
       setIsLogin(true);
+      setTimeout(() => router.replace("/store/cart"), 8000);
     } else {
       setIsError(true);
       setIsLogin(false);
@@ -28,12 +30,14 @@ const LoginPage = () => {
   function loadHomePage() {
     setTimeout(() => router.replace("/store"), 0);
   }
+
   return (
     <>
       {isLogin ? (
         loadHomePage()
       ) : (
         <div className="container my-10">
+          {" "}
           <form
             className="mx-auto mt-3 flex flex-col gap-4 w-[15rem]"
             action=""
@@ -44,7 +48,7 @@ const LoginPage = () => {
               type="number"
               name="mobileNumber"
               placeholder="شماره موبایل"
-              onChange={(e) => setMobileNumber(e.target.value)}
+              onChange={(e) => (mobileNumber.current = e.target.value)}
             />
             <input
               required
@@ -52,7 +56,7 @@ const LoginPage = () => {
               type="password"
               name="password"
               placeholder="رمز عبور"
-              onChange={(e) => setInputPassword(e.target.value)}
+              onChange={(e) => (inputPassword.current = e.target.value)}
             />
             <div className="flex">
               <input
@@ -75,19 +79,15 @@ const LoginPage = () => {
           <p className="text-center mt-3 text-xs bg-yellow-200 p-4 w-60 mx-auto">
             به صورت آزمایشی نام کاربری و رمز عبور در localeStorage ذخیره می شود
           </p>
-          {isError ? (
+          {isError && (
             <h3 className="text-center m-4 font-bold bg-[#E51A21] text-white p-4 w-72 mx-auto rounded-md">
               شماره تماس یا رمز عبور صحیح نیست!
             </h3>
-          ) : (
-            ""
           )}
-          {isLogin ? (
+          {isLogin && (
             <h3 className="text-center m-4 font-bold bg-[#3fab46db] text-white p-4 w-72 mx-auto rounded-md">
               خوش آمدید!
             </h3>
-          ) : (
-            ""
           )}
         </div>
       )}

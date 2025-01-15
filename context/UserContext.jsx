@@ -43,7 +43,7 @@ export function UserProvider({ children }) {
     }
   }, []);
   useEffect(() => {
-    if (userMobileNumber !== "") {
+    if (password !== "") {
       localStorage.setItem("password", JSON.stringify(password));
     }
   }, [password]);
