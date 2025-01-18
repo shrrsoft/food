@@ -14,13 +14,14 @@ const LoginPage = () => {
   const { userMobileNumber, password } = useContext(userContext);
 
   function handleLogin(e) {
+    e.preventDefault();
     if (
       mobileNumber.current == userMobileNumber &&
       inputPassword.current == password
     ) {
       setIsError(false);
       setIsLogin(true);
-      setTimeout(() => router.replace("/store/cart"), 8000);
+      router.replace("/store/cart");
     } else {
       setIsError(true);
       setIsLogin(false);
@@ -37,7 +38,6 @@ const LoginPage = () => {
         loadHomePage()
       ) : (
         <div className="container my-10">
-          {" "}
           <form
             className="mx-auto mt-3 flex flex-col gap-4 w-[15rem]"
             action=""
@@ -60,13 +60,13 @@ const LoginPage = () => {
             />
             <div className="flex">
               <input
-                className="bg-[#3fab46db] rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-white hover:scale-105 transition-all"
+                className="bg-green-600 rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-white hover:scale-105 transition-all"
                 type="submit"
                 value="ورود "
               />
               <Link
                 href="/store/register"
-                className="bg-[#264aa6db] rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-center text-white hover:scale-105 transition-all">
+                className="bg-sky-600 rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-center text-white hover:scale-105 transition-all">
                 عضویت
               </Link>
             </div>

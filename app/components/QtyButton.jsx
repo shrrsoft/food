@@ -12,12 +12,12 @@ const QtyButton = ({ variant, product }) => {
 
   switch (variant) {
     case "add":
-      className = "hover:bg-[#3fab46db]";
+      className = "hover:bg-green-600";
       fontIcon = <FiPlus className="mx-auto" />;
       handleClick = () => cart.addItemToCart(product.id);
       break;
     case "remove":
-      className = "hover:bg-[#e51a21db]";
+      className = "hover:bg-orange-400	";
       fontIcon = <FiMinus className="mx-auto" />;
       handleClick = () => cart.removeItemFromCart(product.id);
       break;

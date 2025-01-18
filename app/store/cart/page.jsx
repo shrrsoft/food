@@ -37,7 +37,7 @@ const CartPage = () => {
             <div className="flex justify-center items-center">
               <Link
                 href={isLogin ? "/store/checkout" : "/store/login"}
-                className="bg-[#3fab46db] text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all mt-10">
+                className="bg-green-600 text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all mt-10">
                 تکمیل سفارش
               </Link>
             </div>

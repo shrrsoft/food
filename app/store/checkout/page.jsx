@@ -70,7 +70,7 @@ const CheckoutPage = () => {
             <div className="flex justify-center items-center">
               <Link
                 href="/store/payment-gateway"
-                className="bg-[#3fab46db] text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all">
+                className="bg-green-600 text-white p-2 rounded m-4 w-32 text-center hover:scale-105 transition-all">
                 پرداخت
               </Link>
             </div>

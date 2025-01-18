@@ -10,7 +10,9 @@ const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
       <div className="flex flex-col items-start p-4 pr-8 text-white text-2xl ">
         <ul className="flex flex-col gap-6">
           <li>
-            <Link href="/store/user-information">اطلاعات من</Link>
+            <Link href={isLogin ? "/store/user-information" : "/store/login"}>
+              اطلاعات من
+            </Link>
           </li>
           <li>
             <Link href=""> سابقه سفارش ها</Link>
