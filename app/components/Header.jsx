@@ -28,7 +28,7 @@ const Header = () => {
 
   return (
     <header className="md:mb-36 mb-20">
-      <div className="w-full py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20">
+      <div className="w-full py-0.5 mt-0 sm:px-[6rem] px-6 fixed top-0 bg-white z-20 border-b-2 md:border-none">
         <div className="flex items-center justify-between flex-wrap ] ">
           <div className="flex items-center gap-8">
             <div className="flex items-center gap-8">

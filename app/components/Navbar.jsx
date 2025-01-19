@@ -22,7 +22,7 @@ const Navbar = () => {
           <Link href="">شعبه ها </Link>
         </li>
         <li>
-          <Link href="">پشتیبانی </Link>
+          <Link href="/store/support">پشتیبانی </Link>
         </li>
         <li>
           <Link href="/">صفحه اصلی </Link>

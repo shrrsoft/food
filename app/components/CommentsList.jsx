@@ -9,8 +9,6 @@ const Comments = () => {
       <span className="block mb-5 font-bold">دیدگاه ها</span>
       <Comment />
       <Comment />
-      <Comment />
-      <Comment />
       <NewComment />
     </div>
   );

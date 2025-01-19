@@ -24,10 +24,10 @@ const MobileMenu = ({ isOpen, SetIsOpen, isLogin, handleLogin }) => {
             <Link href="">شعبه ها </Link>
           </li>
           <li>
-            <Link href="">پشتیبانی </Link>
+            <Link href="/store/support">پشتیبانی </Link>
           </li>
           <li>
-            <Link href="/">وبلاگ </Link>
+            <Link href="/">صفحه اصلی </Link>
           </li>
           <li>
             <Link href="/store/login" onClick={handleLogin}>

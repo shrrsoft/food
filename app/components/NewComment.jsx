@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const NewComment = () => {
   return (
     <div className="md:w-[80%] md:mx-auto mx-5  py-3 px-2">
@@ -9,7 +11,6 @@ const NewComment = () => {
         </label>
         <textarea
           name=""
-          id=""
           rows="4"
           cols="60"
           className="border rounded-sm  border-slate-400 row-start-3 col-span-3 row-span-2 md:col-span-4"></textarea>

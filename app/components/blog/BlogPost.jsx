@@ -9,10 +9,9 @@ const BlogPost = ({ post }) => {
   return (
     <div
       className="border h-[30rem] border-slate-300/30 shadow-lg md:w-96 w-80 m-8 rounded-md z-10 transition-all overflow-hidden"
-      // data-aos="zoom-in-up"
-      // data-aos-delay="200"
-      // data-aos-once="true"
-    >
+      data-aos="zoom-in-up"
+      data-aos-delay="200"
+      data-aos-once="true">
       <Link href={`/post/${post.id}`} className="">
         <div className="h-52 overflow-hidden">
           <Image
@@ -23,9 +22,7 @@ const BlogPost = ({ post }) => {
             className="mx-auto"
           />
         </div>
-        <h3 className="text-center font-bold my-2 px-2">
-          {post.title}
-        </h3>
+        <h3 className="text-center font-bold my-2 px-2">{post.title}</h3>
         <p className="text-sm mb-2 line-clamp-5 px-6 leading-7 text-justify">
           {postText}
         </p>
