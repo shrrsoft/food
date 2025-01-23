@@ -2,24 +2,32 @@
 
 import { MapContainer } from "react-leaflet/MapContainer";
 import { TileLayer } from "react-leaflet/TileLayer";
-import { useMap, useMapEvents } from "react-leaflet/hooks";
+import { useMapEvents } from "react-leaflet/hooks";
 import { Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { use, useEffect, useState } from "react";
-import GetUserAddress from "./GetUserAddress";
+import { useContext, useEffect, useState } from "react";
+import { Api_Key } from "./Api-key-nehsan";
+import { userContext } from "@/context/UserContext";
 
 const Map = () => {
+  const { setUserAdress } = useContext(userContext);
   const icon = L.icon({ iconUrl: "/images/leaflet/marker-icon.png" });
   const [userPosition, setUserPosition] = useState([35.7219, 51.3347]);
-  async function getUserAddress() {
-    const data =
-      await fetch(`https://nominatim.openstreetmap.org/reverse?lat=${userPosition[0]}&lon=${userPosition[1]}&format=json&addressdetails=1&accept-language=fa&extratags=1&namedetails=1&polygon_geojson=1
-`);
-    console.log(data);
+  async function GetUserAddress() {
+    const data = await fetch(
+      `https://api.neshan.org/v5/reverse?lat=${userPosition[0]}&lng=${userPosition[1]}`,
+      {
+        headers: { "Api-Key": Api_Key },
+      },
+      { mode: "no-cors" }
+    );
+    const address = await data.json();
+    console.log(address.formatted_address);
+    setUserAdress(address.formatted_address);
   }
-  // useEffect(() => {
-  //   GetUserAddress(userPosition[0], userPosition[1]);
-  // }, [userPosition]);
+  useEffect(() => {
+    GetUserAddress();
+  }, [userPosition]);
 
   function UserPositionMarker() {
     useMapEvents({
@@ -30,7 +38,7 @@ const Map = () => {
     return null;
   }
   return (
-    <div className="w-[45%] h-80 mb-20 border overflow-hidden">
+    <div className="mx-auto h-80 md:mb-20 w-[30rem] max-w-[90%] border overflow-hidden">
       <MapContainer
         center={[35.7219, 51.3347]}
         zoom={11}
@@ -42,9 +50,7 @@ const Map = () => {
         />
         <UserPositionMarker />
         <Marker position={userPosition} icon={icon}>
-          <Popup>
-            A pretty CSS3 popup. <br /> Easily customizable.
-          </Popup>
+          <Popup>آدرس مشتری</Popup>
         </Marker>
       </MapContainer>
     </div>

@@ -10,8 +10,13 @@ const Map = dynamic(() => import("@/app/components/Map"), { ssr: false });
 
 const RegisterPage = () => {
   const [isCorrect, setIsCorrect] = useState(false);
-  const { setUserMobileNumber, setPassword, setUserAdress, setUserName } =
-    useContext(userContext);
+  const {
+    setUserMobileNumber,
+    setPassword,
+    setUserAdress,
+    userAddress,
+    setUserName,
+  } = useContext(userContext);
 
   const router = useRouter();
 
@@ -30,10 +35,17 @@ const RegisterPage = () => {
       .string("فقط عدد مجاز است")
       .min(11, "شماره موبایل نامعتبر است")
       .max(11, "شماره موبایل نامعتبر است"),
-    address: yup
-      .string()
-      .required("وارد کردن آدرس الزامی است")
-      .min(15, "آدرس را صحیح وارد کنید"),
+    address: yup.string().required("وارد کردن آدرس الزامی است"),
+    houseNumber: yup
+      .number()
+      .transform((value) => (Number.isNaN(value) ? null : value))
+      .min(1, "شماره پلاک را صحیح وارد کنید")
+      .required("وارد کردن پلاک الزامی است"),
+    unit: yup
+      .number()
+      .transform((value) => (Number.isNaN(value) ? null : value))
+      .min(1, "شماره واحد را صحیح وارد کنید")
+      .required("وارد کردن شماره واحد الزامی است"),
   });
 
   const {
@@ -47,16 +59,16 @@ const RegisterPage = () => {
     setUserMobileNumber(data.mobileNumber);
     setPassword(data.password);
     setUserName(data.userName);
-    setUserAdress(data.address);
+    setUserAdress(`${data.address} پلاک ${data.houseNumber} واحد ${data.unit}`);
     setTimeout(() => router.replace("/store/login"), 2000);
   }
   // map config
 
   return (
     <>
-      <div className="flex justify-center w-[80%] mx-auto gap-36">
+      <div className="flex gap-10 flex-wrap justify-center items-center">
         <form
-          className="my-3 flex flex-col gap-4 w-[15rem] text-center [&_p]:text-red-500"
+          className="my-3 flex flex-col gap-4 md:w-[15rem] w-[80%] text-center [&_p]:text-red-500"
           action=""
           onSubmit={handleSubmit(onSubmitForm)}>
           <input
@@ -95,21 +107,50 @@ const RegisterPage = () => {
           {errors.confirmPassword && (
             <p className="text-black">{errors.confirmPassword?.message}</p>
           )}
+          <div className="md:hidden">
+            <Map />
+          </div>
           <textarea
             className="text-black p-1 outline-none rounded-md border text-right"
             placeholder=" آدرس"
+            value={userAddress}
             {...register("address")}></textarea>
           {errors.address && (
             <p className="text-black">{errors.address?.message}</p>
           )}
-
+          <div className="flex md:justify-between justify-center gap-4">
+            <div>
+              <input
+                className="text-black p-1 w-20 outline-none rounded-md border text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                type="number"
+                placeholder="پلاک"
+                {...register("houseNumber")}
+              />
+              {errors.houseNumber && (
+                <p className="text-black">{errors.houseNumber?.message}</p>
+              )}
+            </div>
+            <div>
+              <input
+                className="text-black p-1 w-20 outline-none rounded-md border text-center [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                type="number"
+                placeholder=" واحد "
+                {...register("unit")}
+              />
+              {errors.unit && (
+                <p className="text-black">{errors.unit?.message}</p>
+              )}
+            </div>
+          </div>
           <input
             className="bg-[#3fab46db] rounded-md mt-3 p-0.5 pb-2 mx-auto w-[5rem] text-white hover:scale-105 transition-all"
             type="submit"
             value="تایید  "
           />
         </form>
-        <Map />
+        <div className="hidden md:block">
+          <Map />
+        </div>
       </div>
       {isCorrect && (
         <h3 className="text-center m-4 font-bold bg-[#3fab46db] text-white p-4 w-72 mx-auto rounded-md">
