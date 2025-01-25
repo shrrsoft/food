@@ -8,7 +8,7 @@ export const postText =
 const BlogPost = ({ post }) => {
   return (
     <div
-      className="border h-[30rem] border-slate-300/30 shadow-lg md:w-96 w-80 m-8 rounded-md z-10 transition-all overflow-hidden"
+      className="border h-[30rem] mx-auto border-slate-300/30 shadow-lg md:w-96 w-80 m-8 rounded-md z-10 transition-all overflow-hidden"
       data-aos="zoom-in-up"
       data-aos-delay="200"
       data-aos-once="true">

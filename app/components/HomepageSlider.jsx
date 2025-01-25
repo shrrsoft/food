@@ -1,6 +1,5 @@
 "use client";
 import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
 import { productList } from "@/data/items";
 import { GiFullPizza, GiSandwich } from "react-icons/gi";
 import { FaHamburger } from "react-icons/fa";

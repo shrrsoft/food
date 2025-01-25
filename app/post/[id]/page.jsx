@@ -10,8 +10,8 @@ const SinglePostPage = () => {
   const post = getPostData(parseInt(params.id));
 
   return (
-    <div className="w-[70%] mx-auto mb-20">
-      <h1 className="font-bold text-3xl text-[#E51A21] mt-10 mb-20 md:text-right text-center leading-[3rem]">
+    <div className="w-[85%] mx-auto mb-20">
+      <h1 className="font-bold text-xl text-[#E51A21] mt-10 mb-20 md:text-right text-center leading-[3rem]">
         {post.title}
       </h1>
       <div className="">
