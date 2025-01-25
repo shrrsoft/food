@@ -7,9 +7,9 @@ import { FaHamburger } from "react-icons/fa";
 import { FaBowlFood } from "react-icons/fa6";
 import { RiDrinksFill } from "react-icons/ri";
 import Food from "./Food";
+import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
+import { Navigation } from "swiper/modules";
 
 const HomepageSlider = () => {
   const categories = [
@@ -65,19 +65,23 @@ const HomepageSlider = () => {
       spaceBetween: 40,
     },
   };
+
   return (
     <>
       {categories.map((item) => (
-        <div key={item.category} className="max-w-[85%] mx-auto">
+        <div key={item.category} className=" mx-auto">
           <div className="flex items-center pr-4 justify-center">
             {item.icon}
             <h1 className="font-bold text-xl mr-2 my-4">{item.name}</h1>
           </div>
           <div className="flex mx-auto flex-wrap mb-8 justify-center">
             <Swiper
+              className="mySwiper"
               spaceBetween={50}
               slidesPerView={3}
               loop="true"
+              navigation={true}
+              modules={[Navigation]}
               breakpoints={breakpoints}>
               {productList.map(
                 (product) =>
