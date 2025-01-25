@@ -1,7 +1,7 @@
 "use client";
 import { userContext } from "@/context/UserContext";
 import { useRouter } from "next/navigation";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -16,6 +16,7 @@ const RegisterPage = () => {
     setUserAdress,
     userAddress,
     setUserName,
+    isLogin,
   } = useContext(userContext);
 
   const router = useRouter();
@@ -62,7 +63,10 @@ const RegisterPage = () => {
     setUserAdress(`${data.address} پلاک ${data.houseNumber} واحد ${data.unit}`);
     setTimeout(() => router.replace("/store/login"), 2000);
   }
-  // map config
+
+  useEffect(() => {
+    isLogin && router.replace("/store");
+  }, [isLogin]);
 
   return (
     <>

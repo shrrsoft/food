@@ -22,7 +22,6 @@ const Map = () => {
       { mode: "no-cors" }
     );
     const address = await data.json();
-    console.log(address.formatted_address);
     setUserAdress(address.formatted_address);
   }
   useEffect(() => {
