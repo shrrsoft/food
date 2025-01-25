@@ -101,17 +101,17 @@ export const productList = [
         category: "sandwich"
     },{
         id : 15,
-        title: "سیب زمینی   ",
-        details: "350 گرم سیب زمینی سرخ کرده، ادویه مخصوص",
+        title: "سیب زمینی کوچک   ",
+        details: "200 گرم سیب زمینی سرخ کرده، ادویه مخصوص",
         price : 96000,
         imageUrl : "/images/sibzamini.jpg",
         category: "sides"
     },{
         id : 16,
-        title: "سیب زمینی و پنیر",
-        details: "350 گرم سیب زمینی سرخ کرده ، پنیر موزارلا ، قارچ",
-        price : 146000,
-        imageUrl : "/images/sibzaminipanir.jpg",
+        title: "سیب زمینی بزرگ",
+        details: "سیب زمینی سـرخ شده، ادویه مخصوص",
+        price : 120000,
+        imageUrl : "/images/سیب زمینی سرخ شده.jpg",
         category: "sides"
     },{
         id : 17,
@@ -120,16 +120,37 @@ export const productList = [
         price : 107000,
         imageUrl : "/images/nanesir.jpg",
         category: "sides"
+    },{
+        id : 18,
+        title: "آلفردو چیز فرایز ",
+        details: "سیب زمینی سرخ شده، سس آلفردو، پنیر دیپ گودا، پیاز سرخ شده",
+        price : 228000,
+        imageUrl : "/images/آلفردو چیز فرایز.jpg",
+        category: "sides"
+    },{
+        id : 19,
+        title: "هات داگ چیز فرایز",
+        details: "سیب زمینی سرخ شده، پنیر دیپ گودا، سس هات داگ، پیازچه",
+        price : 234000,
+        imageUrl : "/images/هات داگ چیز فرایز.jpg",
+        category: "sides"
+    },{
+        id : 20,
+        title: "فینگر کریسپی بزرگ",
+        details: "توپک مرغ پنیری، پوره سیب زمینی سوخاری، سس مخصوص، شوید",
+        price : 178000,
+        imageUrl : "/images/فینگر کریسپی بزرگ.jpg",
+        category: "sides"
     }
     ,{
-        id : 18,
+        id : 21,
         title: "نوشابه خانواده کوکاکولا",
         details: "1.5 لیتر",
         price : 36000,
         imageUrl : "/images/کوکا.jpg",
         category: "drinks"
     },{
-        id : 19,
+        id : 22,
         title: "نوشابه خانواده فانتا پرتقالی",
         details: "1.5 لیتر",
         price : 36000,
@@ -137,11 +158,32 @@ export const productList = [
         category: "drinks"
     }
     ,{
-        id : 20,
+        id : 23,
         title: "نوشابه خانواده اسپرایت",
         details: "1.5 لیتر",
         price : 36000,
         imageUrl : "/images/اسپرایت.jpg",
+        category: "drinks"
+    },{
+        id : 24,
+        title: "نوشابه قوطی کوکا کولا",
+        details: "0.5 لیتر",
+        price : 25000,
+        imageUrl : "/images/کوکا قوطی کوچک.jpg",
+        category: "drinks"
+    },{
+        id : 25,
+        title: "نوشابه قوطی کوکا کولا رژیمی",
+        details: "0.5 لیتر",
+        price : 25000,
+        imageUrl : "/images/کوکا رژیمی قوطی کوچک.jpg",
+        category: "drinks"
+    },{
+        id : 26,
+        title: "نوشابه قوطی  اسپرایت",
+        details: "0.5 لیتر",
+        price : 25000,
+        imageUrl : "/images/اسپرایت قوطی کوچک.jpg",
         category: "drinks"
     }
 ]
